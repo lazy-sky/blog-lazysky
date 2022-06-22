@@ -1,0 +1,9 @@
+@import '../../styles/index';
+
+.layout {
+  background: $SURFACE;
+
+  main {
+    min-height: 100vh;
+  }
+}
