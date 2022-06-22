@@ -1,5 +1,3 @@
-import cx from 'classnames'
-import styles from './index.scss'
+import styles from './globals.scss'
 
 export default styles
-export { cx }
