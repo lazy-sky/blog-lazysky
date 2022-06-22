@@ -1,0 +1,59 @@
+@mixin heading1() {
+  font-size: $FONT_SIZE_HEADING1;
+  font-weight: $FONT_WEIGHT_HEADING;
+  line-height: $LINE_HEIGHT;
+}
+
+@mixin heading2() {
+  font-size: $FONT_SIZE_HEADING2;
+  font-weight: $FONT_WEIGHT_HEADING;
+  line-height: $LINE_HEIGHT;
+}
+
+@mixin heading3() {
+  font-size: $FONT_SIZE_HEADING3;
+  font-weight: $FONT_WEIGHT_HEADING;
+  line-height: $LINE_HEIGHT;
+}
+
+@mixin heading4() {
+  font-size: $FONT_SIZE_HEADING4;
+  font-weight: $FONT_WEIGHT_HEADING;
+  line-height: $LINE_HEIGHT;
+}
+
+@mixin heading5() {
+  font-size: $FONT_SIZE_HEADING5;
+  font-weight: $FONT_WEIGHT_HEADING;
+  line-height: $LINE_HEIGHT;
+}
+
+@mixin body1() {
+  font-size: $FONT_SIZE_BODY1;
+  font-weight: $FONT_WEIGHT_REGULAR;
+  line-height: $LINE_HEIGHT;
+}
+
+@mixin body2() {
+  font-size: $FONT_SIZE_BODY2;
+  font-weight: $FONT_WEIGHT_REGULAR;
+  line-height: $LINE_HEIGHT;
+}
+
+@mixin body3() {
+  font-size: $FONT_SIZE_BODY3;
+  font-weight: $FONT_WEIGHT_REGULAR;
+  line-height: $LINE_HEIGHT;
+}
+
+@mixin body4() {
+  font-size: $FONT_SIZE_BODY4;
+  font-weight: $FONT_WEIGHT_REGULAR;
+  line-height: $LINE_HEIGHT;
+}
+
+@mixin flag() {
+  font-size: $FONT_SIZE_FLAG;
+  font-weight: $FONT_WEIGHT_FLAG;
+  line-height: $LINE_HEIGHT;
+}
