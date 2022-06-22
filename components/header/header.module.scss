@@ -1,0 +1,49 @@
+@import '../../styles/index';
+
+.header {
+  @include heading5;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  padding: 16px;
+
+  .menuBtn {
+    display: none;
+  }
+
+  .navigation ul {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-end;
+
+    a:hover {
+      color: $HIGHLIGHT;
+    }
+  }
+
+  * {
+    color: $GRAY2;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    .navigation {
+      .menuBtn {
+        display: block;
+        float: right;
+      }
+
+      ul {
+        display: none;
+        text-align: right;
+      }
+
+      &.active ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: 48px;
+      }
+    }
+  }
+}
