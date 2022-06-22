@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { GithubIcon, InstagramIcon } from '../../assets/images/index'
+import { GithubIcon, InstagramIcon } from '../../assets/images'
 
 import styles from './footer.module.scss'
 

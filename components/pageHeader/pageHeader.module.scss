@@ -1,0 +1,24 @@
+@import '../../styles/index';
+
+.header {
+  position: relative;
+  padding: 20px 0;
+
+  .title {
+    @include heading3;
+    text-align: center;
+    background-color: $BACKGROUND;
+  }
+
+  .backBtn {
+    position: absolute;
+    top: 32px;
+    left: 16px;
+  }
+
+  .children {
+    position: absolute;
+    top: 32px;
+    right: 16px;
+  }
+}
