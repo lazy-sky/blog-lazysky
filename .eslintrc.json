@@ -61,6 +61,7 @@
     "prefer-const": ["warn"],
     "prefer-destructuring": ["error", { "object": true, "array": false }],
     "lines-between-class-members": "off",
+    "jsx-a11y/anchor-is-valid": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/label-has-associated-control": [
       "error",
