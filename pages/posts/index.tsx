@@ -1,9 +1,14 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import axios from 'axios'
 
 import PageHeader from '../../components/pageHeader'
 
-const Posts: NextPage = () => {
+import styles from './posts.module.scss'
+
+const Posts: NextPage = ({ results }: any) => {
+  // console.log(results)
+
   return (
     <>
       <Head>
@@ -12,11 +17,36 @@ const Posts: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <PageHeader title='Posts' hasBackBtn />
-      <div>게시글1</div>
-      <div>게시글2</div>
-      <div>게시글3</div>
+      <ul className={styles.posts}>
+        {results.map((post: any) => (
+          <li key={post.id}>
+            <div>{post.properties.Name.title[0].plain_text}</div>
+          </li>
+        ))}
+      </ul>
     </>
   )
 }
 
 export default Posts
+
+export async function getStaticProps() {
+  const options = {
+    method: 'POST',
+    url: `https://api.notion.com/v1/databases/${process.env.NOTION_DATABASE_ID}/query`,
+    headers: {
+      Accept: 'application/json',
+      'Notion-Version': '2022-02-22',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
+    },
+  }
+
+  const {
+    data: { results },
+  } = await axios.request(options)
+
+  return {
+    props: { results },
+  }
+}
