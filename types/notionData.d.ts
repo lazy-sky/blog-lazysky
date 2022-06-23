@@ -1,12 +1,13 @@
 export interface IProject {
   id: string
+  url: string
   properties: {
     Name: {
       title: {
         plain_text
       }[]
     }
-    URL: {
+    Deploy: {
       url: string
     }
     Code: {

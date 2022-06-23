@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import Image from 'next/image'
 import axios from 'axios'
 
@@ -24,7 +25,7 @@ const Posts = ({ results }: IPostsProps) => {
         {results.map((post: IProject) => {
           const {
             id,
-            properties: { Name, Code, Tags, Photo, Tech, URL },
+            properties: { Name, Code, Tags, Photo, Tech, Deploy },
           } = post
 
           return (
@@ -55,8 +56,8 @@ const Posts = ({ results }: IPostsProps) => {
                   ))}
                 </ul>
                 <div className={styles.links}>
-                  <a href={URL.url} target='_blank' rel='noreferrer'>
-                    Demo
+                  <a href={Deploy.url} target='_blank' rel='noreferrer'>
+                    Deploy
                   </a>
                   <a
                     href={Code.rich_text[0].plain_text}
@@ -65,6 +66,13 @@ const Posts = ({ results }: IPostsProps) => {
                   >
                     Codes
                   </a>
+                </div>
+                <div>
+                  <Link href={post.url}>
+                    <a target='_blank' rel='noreferrer'>
+                      자세히 보기
+                    </a>
+                  </Link>
                 </div>
               </div>
             </li>
