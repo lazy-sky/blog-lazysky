@@ -1,0 +1,20 @@
+@import './styles/index';
+
+.markdown {
+  border: 1px solid pink;
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol,
+.markdown blockquote {
+  @include body2;
+}
+
+.markdown h2 {
+  @include heading2;
+}
+
+.markdown h3 {
+  @include heading5;
+}
