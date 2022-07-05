@@ -1,11 +1,12 @@
 @import '../../styles/index';
 
-.header {
+.pageHeader {
   position: relative;
   padding: 20px 0;
+  color: $GRAY2;
 
   .title {
-    @include heading3;
+    @include heading2;
     text-align: center;
   }
 

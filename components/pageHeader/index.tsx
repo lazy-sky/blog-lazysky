@@ -9,7 +9,7 @@ interface IPageHeader {
 
 const PageHeader = ({ title, hasBackBtn, children }: IPageHeader) => {
   return (
-    <div className={styles.header}>
+    <div className={styles.pageHeader}>
       {hasBackBtn && (
         <div className={styles.backBtn}>
           <BackButton />
