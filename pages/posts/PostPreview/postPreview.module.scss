@@ -1,0 +1,49 @@
+@import 'styles/index';
+
+.postPreview {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  padding: 40px 20px;
+  margin-bottom: 16px;
+  color: $GRAY2;
+  background-color: $WHITE;
+  border: 2px solid $LINE;
+  border-radius: 8px;
+
+  &:hover {
+    color: $HIGHLIGHT;
+    border-color: $HIGHLIGHT;
+
+    .coverImage {
+      background: $WHITE;
+      animation: popout 0.3s linear;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  .coverImage {
+    background: url('/images/pattern.png');
+  }
+
+  .title {
+    @include heading3;
+    padding: 4px 0;
+    margin-bottom: 8px;
+    border-bottom: 1px solid $LINE;
+  }
+
+  .createdAt {
+    @include flag;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .excerpt {
+    @include body2;
+  }
+
+  @media (min-width: calc($BREAKPOINT_SM - 1px)) {
+    grid-template-columns: 240px 1fr;
+  }
+}
