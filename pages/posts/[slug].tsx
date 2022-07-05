@@ -1,19 +1,34 @@
+import Head from 'next/head'
 import { useRouter } from 'next/router'
-import markdownToHtml from 'utils/markdownToHtml'
 import parse from 'html-react-parser'
 
+import IPost from 'types/post'
 import { getAllPosts, getPostBySlug } from 'utils/documents'
+import markdownToHtml from 'utils/markdownToHtml'
 
 import markdownStyles from 'styles/markdown.module.scss'
+import styles from './post.module.scss'
 
-const Post = ({ post, otherPosts }: any) => {
+interface IPostProps {
+  post: IPost
+  otherPosts: any
+}
+
+const Post = ({ post, otherPosts }: IPostProps) => {
   const router = useRouter()
   const { slug } = router.query
 
   return (
-    <div>
-      <p>Post: {slug}</p>
-      <div>{post.title}</div>
+    <div className={styles.post}>
+      <Head>
+        <title>{post.title} | LazySky Blog</title>
+        <meta
+          name='description'
+          content={`post about ${slug} written by lazy sky`}
+        />
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
+      <h1 className={styles.title}>{post.title}</h1>
       <div className={markdownStyles.markdown}>{parse(post.content)}</div>
     </div>
   )

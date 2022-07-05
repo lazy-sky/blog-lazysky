@@ -1,14 +1,15 @@
-@import './styles/index';
+@import 'styles/index';
 
 .markdown {
-  border: 1px solid pink;
-}
+  p,
+  ul,
+  ol {
+    @include body2;
+  }
 
-.markdown p,
-.markdown ul,
-.markdown ol,
-.markdown blockquote {
-  @include body2;
+  blockquote {
+    @include body3;
+  }
 }
 
 .markdown h2 {
@@ -16,5 +17,5 @@
 }
 
 .markdown h3 {
-  @include heading5;
+  @include heading3;
 }
