@@ -1,4 +1,4 @@
-@import '../../styles/index';
+@import 'styles/index';
 
 .projects {
   display: grid;
@@ -57,10 +57,6 @@
     }
   }
 }
-
-$BREAKPOINT_SM: 576px;
-$BREAKPOINT_MD: 768px;
-$BREAKPOINT_LG: 1200px;
 
 @media (min-width: calc($BREAKPOINT_SM - 1px)) {
   .projects {
