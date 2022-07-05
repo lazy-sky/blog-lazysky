@@ -1,22 +1,40 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
 
-import PageHeader from '../../components/pageHeader'
+import IPost from 'types/post'
+import { getAllPosts } from 'utils/documents'
+import PageHeader from 'components/pageHeader'
+import PostPreview from './PostPreview'
 
-const Projects: NextPage = () => {
+interface IPostsProps {
+  posts: IPost[]
+}
+
+const Posts = ({ posts }: IPostsProps) => {
   return (
     <>
       <Head>
-        <title>LazySky Blog | Posts</title>
+        <title>Posts | LazySky Blog</title>
         <meta name='description' content='Posts created by lazy sky' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <PageHeader title='Posts' hasBackBtn />
-      <div>Post 1</div>
-      <div>Post 2</div>
-      <div>Post 3</div>
+      <section>
+        {posts?.map((post) => (
+          <PostPreview key={post.slug} post={post} />
+        ))}
+      </section>
     </>
   )
 }
 
-export default Projects
+export async function getStaticProps() {
+  const posts = getAllPosts(['title', 'date', 'slug', 'coverImage', 'excerpt'])
+
+  return {
+    props: {
+      posts,
+    },
+  }
+}
+
+export default Posts
