@@ -7,8 +7,6 @@ ogImage:
   url: '/images/posts/third/cover.jpg'
 ---
 
-# Hooks
-
 ## 1. Hooks란?
 
 Hooks는 React 16.8 버전에서 **클래스 컴포넌트만을 사용할 때 부딪히는 수많은 문제들을 해결**하기 위해서 나온 것이다.
