@@ -1,10 +1,10 @@
 @import 'styles/index';
 
 .post {
-  padding: 24px;
+  padding: 32px;
   background-color: $WHITE;
-  border-right: 2px solid $LINE;
-  border-left: 2px solid $LINE;
+  border: 2px solid $LINE;
+  border-top: none;
 
   .title {
     @include heading1;
