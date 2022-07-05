@@ -3,7 +3,7 @@ import Head from 'next/head'
 import IPost from 'types/post'
 import { getAllPosts } from 'utils/documents'
 import PageHeader from 'components/pageHeader'
-import PostPreview from './PostPreview'
+import PostPreview from 'components/PostPreview'
 
 interface IPostsProps {
   posts: IPost[]
