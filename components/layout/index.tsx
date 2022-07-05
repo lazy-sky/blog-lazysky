@@ -9,11 +9,13 @@ interface ILayoutProps {
 
 const Layout = ({ children }: ILayoutProps) => {
   return (
-    <div className={styles.layout}>
+    <>
       <Header />
-      <main>{children}</main>
-      <Footer />
-    </div>
+      <div className={styles.layout}>
+        <main>{children}</main>
+        <Footer />
+      </div>
+    </>
   )
 }
 

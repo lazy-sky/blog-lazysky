@@ -1,12 +1,17 @@
-@import '../../styles/index';
+@import 'styles/index';
 
 .header {
   @include heading5;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: $GNB;
   display: flex;
   gap: 16px;
   justify-content: space-between;
-  padding: 16px;
+  padding: 20px 28px;
   background-color: $WHITE;
+  border-bottom: 2px solid $LINE;
 
   .menuBtn {
     display: none;
@@ -27,7 +32,7 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media (max-width: calc($BREAKPOINT_SM - 1px)) {
   .header {
     .navigation {
       .menuBtn {
