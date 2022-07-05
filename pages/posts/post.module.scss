@@ -1,0 +1,14 @@
+@import 'styles/index';
+
+.post {
+  padding: 24px;
+  background-color: $WHITE;
+  border-right: 2px solid $LINE;
+  border-left: 2px solid $LINE;
+
+  .title {
+    @include heading1;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+}
