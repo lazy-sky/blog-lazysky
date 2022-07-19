@@ -14,15 +14,13 @@ const ProjectPreview = ({ project }: IPostPreivewProps) => {
   const router = useRouter()
   const {
     id,
-    properties: { Name, Code, Tags, Photo, Tech, Deploy },
+    properties: { Name, Tags, Photo, Tech },
   } = project
 
   const title = Name.title[0].plain_text
   const photoUrl = Photo.files[0].file.url
   const tags = Tags.multi_select
   const techs = Tech.multi_select
-  const deployUrl = Deploy.url
-  const codeUrl = Code.rich_text[0].plain_text
 
   const handleClick = () => {
     router.push(`/projects/${id}`)
@@ -56,14 +54,6 @@ const ProjectPreview = ({ project }: IPostPreivewProps) => {
               </li>
             ))}
           </ul>
-          <div className={styles.links}>
-            <a href={deployUrl} target='_blank' rel='noreferrer'>
-              Deploy
-            </a>
-            <a href={codeUrl} target='_blank' rel='noreferrer'>
-              Codes
-            </a>
-          </div>
         </div>
       </button>
     </li>

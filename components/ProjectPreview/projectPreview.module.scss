@@ -39,19 +39,6 @@
         background-color: $SECONDARY;
       }
     }
-
-    .links {
-      display: flex;
-      gap: 16px;
-
-      * {
-        color: inherit;
-
-        &:hover {
-          color: $GRAY2;
-        }
-      }
-    }
   }
 
   &:hover {
