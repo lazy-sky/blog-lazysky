@@ -1,34 +1,109 @@
-import { useRouter } from 'next/router'
+/* eslint-disable max-lines */
+import Image from 'next/image'
+import axios from 'axios'
 import parse from 'html-react-parser'
 
+import { IProject } from 'types/notionData'
 import markdownToHtml from 'utils/markdownToHtml'
-import { getAllProjects, getProjectBySlug } from 'utils/documents'
+import { getProjectBySlug } from 'utils/documents'
 
 import markdownStyles from 'styles/markdown.module.scss'
 
-const ProjectDetail = ({ post }: any) => {
-  const router = useRouter()
-  const { slug } = router.query
+interface IProjectDetailProps {
+  properties: any
+  article: any
+}
+
+interface ITag {
+  id: string
+  name: string
+}
+
+const ProjectDetail = (props: IProjectDetailProps) => {
+  const {
+    properties: { Photo, Name, Tags, Tech, Deploy, Code },
+    article,
+  } = props
+  const title = Name.results[0].title.plain_text
+  const imageSrc = Photo.files[0].file.url
+  const deployUrl = Deploy.url
+  const codeUrl = Code.results[0].rich_text.plain_text
+  const tags: ITag[] = Tags.multi_select
+  const techs: ITag[] = Tech.multi_select
 
   return (
     <div>
-      <p>Post: {slug}</p>
-      <div>{post.title}</div>
-      <div className={markdownStyles.markdown}>{parse(post.content)}</div>
+      <Image
+        priority
+        src={imageSrc}
+        height={100}
+        width={100}
+        layout='responsive'
+        objectFit='cover'
+        alt='프로젝트 대표 사진'
+      />
+      <div>
+        <h3>{title}</h3>
+        <ul>
+          {tags.map(({ id, name }) => (
+            <li key={id}>{name}</li>
+          ))}
+        </ul>
+        <ul>
+          {techs.map(({ id, name }) => (
+            <li key={id}>{name}</li>
+          ))}
+        </ul>
+        <div>
+          <a href={deployUrl} target='_blank' rel='noreferrer'>
+            Deploy
+          </a>
+          <a href={codeUrl} target='_blank' rel='noreferrer'>
+            Codes
+          </a>
+        </div>
+      </div>
+      {/* <h1 className={styles.title}>{article.title}</h1> */}
+      <div className={markdownStyles.markdown}>{parse(article.content)}</div>
     </div>
   )
 }
 
 export default ProjectDetail
 
-interface IParams {
-  params: {
-    slug: string
-  }
-}
+export async function getStaticProps({ params }: any) {
+  const { slug } = params
 
-export async function getStaticProps({ params }: IParams) {
-  const post = getProjectBySlug(params.slug, [
+  const options = {
+    method: 'GET',
+    url: `https://api.notion.com/v1/pages/${slug}`,
+    headers: {
+      Accept: 'application/json',
+      'Notion-Version': '2022-06-28',
+      Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
+    },
+  }
+
+  const { data } = await axios.request(options)
+
+  const getProperty = (propertyId: string) => ({
+    method: 'GET',
+    url: `https://api.notion.com/v1/pages/${slug}/properties/${propertyId}`,
+    headers: {
+      Accept: 'application/json',
+      'Notion-Version': '2022-06-28',
+      Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
+    },
+  })
+
+  const properties: any = {}
+  for await (const key of Object.keys(data.properties)) {
+    const res = await axios.request(getProperty(key))
+    properties[key] = res.data
+  }
+
+  const fileName = properties.Name.results[0].title.plain_text
+  const article = getProjectBySlug(fileName, [
     'title',
     'date',
     'slug',
@@ -36,12 +111,13 @@ export async function getStaticProps({ params }: IParams) {
     'ogImage',
     'coverImage',
   ])
-  const content = await markdownToHtml(post.content || '')
+  const content = await markdownToHtml(article.content || '')
 
   return {
     props: {
-      post: {
-        ...post,
+      properties,
+      article: {
+        ...article,
         content,
       },
     },
@@ -49,13 +125,26 @@ export async function getStaticProps({ params }: IParams) {
 }
 
 export async function getStaticPaths() {
-  const projects = getAllProjects(['slug'])
+  const options = {
+    method: 'POST',
+    url: `https://api.notion.com/v1/databases/${process.env.NOTION_DATABASE_ID}/query`,
+    headers: {
+      Accept: 'application/json',
+      'Notion-Version': '2022-06-28',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
+    },
+  }
+
+  const {
+    data: { results },
+  } = await axios.request(options)
 
   return {
-    paths: projects.map((project) => {
+    paths: results.map((project: IProject) => {
       return {
         params: {
-          slug: project.slug,
+          slug: project.id,
         },
       }
     }),
