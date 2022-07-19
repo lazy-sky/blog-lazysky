@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router'
-import markdownToHtml from '../../utils/markdownToHtml'
 import parse from 'html-react-parser'
 
-import { getAllProjects, getProjectBySlug } from '../../utils/documents'
+import markdownToHtml from 'utils/markdownToHtml'
+import { getAllProjects, getProjectBySlug } from 'utils/documents'
 
-import markdownStyles from '../../styles/markdown.module.scss'
+import markdownStyles from 'styles/markdown.module.scss'
 
 const ProjectDetail = ({ post }: any) => {
   const router = useRouter()

@@ -19,9 +19,11 @@ const Posts = ({ posts }: IPostsProps) => {
       </Head>
       <PageHeader title='Posts' hasBackBtn />
       <section>
-        {posts?.map((post) => (
-          <PostPreview key={post.slug} post={post} />
-        ))}
+        <ol>
+          {posts?.map((post) => (
+            <PostPreview key={post.slug} post={post} />
+          ))}
+        </ol>
       </section>
     </>
   )

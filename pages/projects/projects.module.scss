@@ -10,69 +10,15 @@
   border-radius: 16px;
   box-shadow: 12px 12px 0 $PRIMARY;
 
-  > li {
-    color: $GRAY3;
-    cursor: pointer;
-    border-radius: 8px;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 10%);
-
-    &:hover {
-      color: $GRAY6;
-      box-shadow: 4px 4px 4px rgba(0, 0, 0, 20%);
-    }
-
-    .info {
-      @include body2;
-      padding: 12px 16px;
-
-      > * {
-        margin-bottom: 8px;
-      }
-
-      .projectName {
-        @include heading5;
-      }
-
-      .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        color: $GRAY2;
-
-        .tag {
-          @include body4;
-          padding: 4px 8px;
-          background-color: $PRIMARY;
-          border-radius: 4px;
-        }
-
-        .tech {
-          background-color: $SECONDARY;
-        }
-      }
-
-      .links {
-        display: flex;
-        gap: 16px;
-      }
-    }
-  }
-}
-
-@media (min-width: calc($BREAKPOINT_SM - 1px)) {
-  .projects {
+  @media (min-width: calc($BREAKPOINT_SM - 1px)) {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-@media (min-width: calc($BREAKPOINT_MD - 1px)) {
-  .projects {
+  @media (min-width: calc($BREAKPOINT_MD - 1px)) {
     grid-template-columns: repeat(3, 1fr);
   }
-}
 
-@media (min-width: calc($BREAKPOINT_LG - 1px)) {
-  .projects {
+  @media (min-width: calc($BREAKPOINT_LG - 1px)) {
     grid-template-columns: repeat(4, 1fr);
   }
 }
