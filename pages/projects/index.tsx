@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import axios from 'axios'
+import cx from 'classnames'
 
 import { IProject } from '../../types/notionData'
 import PageHeader from '../../components/pageHeader'
@@ -12,7 +13,7 @@ interface IPostsProps {
   results: IProject[]
 }
 
-const Posts = ({ results }: IPostsProps) => {
+const Projects = ({ results }: IPostsProps) => {
   return (
     <>
       <Head>
@@ -45,12 +46,14 @@ const Posts = ({ results }: IPostsProps) => {
                 </h3>
                 <ul className={styles.tags}>
                   {Tags.multi_select.map((tag) => (
-                    <li key={tag.id}>{tag.name}</li>
+                    <li key={tag.id} className={styles.tag}>
+                      {tag.name}
+                    </li>
                   ))}
                 </ul>
                 <ul className={styles.tags}>
                   {Tech.multi_select.map((tag) => (
-                    <li key={tag.id} className={styles.tech}>
+                    <li key={tag.id} className={cx(styles.tech, styles.tag)}>
                       {tag.name}
                     </li>
                   ))}
@@ -83,7 +86,7 @@ const Posts = ({ results }: IPostsProps) => {
   )
 }
 
-export default Posts
+export default Projects
 
 export async function getStaticProps() {
   const options = {

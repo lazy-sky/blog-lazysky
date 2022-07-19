@@ -35,18 +35,19 @@
 
       .tags {
         display: flex;
+        flex-wrap: wrap;
         gap: 8px;
         color: $GRAY2;
 
-        li {
+        .tag {
           @include body4;
           padding: 4px 8px;
           background-color: $PRIMARY;
           border-radius: 4px;
+        }
 
-          &.tech {
-            background-color: $SECONDARY;
-          }
+        .tech {
+          background-color: $SECONDARY;
         }
       }
 
