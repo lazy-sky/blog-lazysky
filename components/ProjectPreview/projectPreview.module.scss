@@ -1,14 +1,13 @@
 @import 'styles/index';
 
 .projectPreview {
-  color: $GRAY3;
+  color: $GRAY2;
   cursor: pointer;
   border-radius: 8px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 10%);
 
-  &:hover {
-    color: $GRAYC;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 20%);
+  > button {
+    text-align: left;
   }
 
   .info {
@@ -19,7 +18,7 @@
       margin-bottom: 8px;
     }
 
-    .projectName {
+    .title {
       @include heading5;
     }
 
@@ -44,6 +43,22 @@
     .links {
       display: flex;
       gap: 16px;
+
+      * {
+        color: inherit;
+
+        &:hover {
+          color: $GRAY2;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 20%);
+
+    * {
+      color: $GRAY8;
     }
   }
 }
