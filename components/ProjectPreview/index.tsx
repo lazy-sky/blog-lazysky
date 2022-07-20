@@ -29,15 +29,17 @@ const ProjectPreview = ({ project }: IPostPreivewProps) => {
   return (
     <li key={id} className={styles.projectPreview}>
       <button type='button' onClick={handleClick}>
-        <Image
-          priority
-          src={photoUrl}
-          height={100}
-          width={100}
-          layout='responsive'
-          objectFit='cover'
-          alt='프로젝트 대표 사진'
-        />
+        <div className={styles.coverImage}>
+          <Image
+            priority
+            src={photoUrl}
+            width='100%'
+            height='100%'
+            layout='responsive'
+            objectFit='contain'
+            alt='프로젝트 대표 사진'
+          />
+        </div>
         <div className={styles.info}>
           <h3 className={styles.title}>{title}</h3>
           <ul className={styles.tags}>

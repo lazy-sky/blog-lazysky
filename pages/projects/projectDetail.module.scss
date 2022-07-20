@@ -1,7 +1,7 @@
 @import 'styles/index';
 
 .projectDetail {
-  padding: 32px;
+  padding: 0 32px 16px;
   background-color: $WHITE;
   border: 2px solid $LINE;
   border-top: none;
@@ -13,7 +13,9 @@
   }
 
   .coverImage {
-    padding: 0 10%;
+    padding: 0 20%;
+    background: url('/images/pattern.png');
+    border-top: 1px solid $LINE;
     border-bottom: 1px solid $LINE;
   }
 

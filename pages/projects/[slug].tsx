@@ -49,8 +49,8 @@ const ProjectDetail = (props: IProjectDetailProps) => {
         <Image
           priority
           src={imageSrc}
-          height={300}
-          width={300}
+          width='100%'
+          height='100%'
           layout='responsive'
           objectFit='contain'
           alt='프로젝트 대표 사진'
