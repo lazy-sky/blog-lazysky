@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import cx from 'classnames'
 
 import { FaceLogo, MenuIcon } from '../../assets/images'
@@ -8,6 +9,7 @@ import { FaceLogo, MenuIcon } from '../../assets/images'
 import styles from './header.module.scss'
 
 const Header = () => {
+  const { pathname } = useRouter()
   const [isMenuShow, setIsMenuShow] = useState(false)
 
   const handleMenuClick = () => {
@@ -35,22 +37,28 @@ const Header = () => {
         <ul>
           <li>
             <Link href='/'>
-              <a>Home</a>
+              <a className={cx(pathname === '/' && styles.active)}>Home</a>
             </Link>
           </li>
           <li>
             <Link href='/posts'>
-              <a>Posts</a>
+              <a className={cx(pathname === '/posts' && styles.active)}>
+                Posts
+              </a>
             </Link>
           </li>
           <li>
             <Link href='/projects'>
-              <a>Projects</a>
+              <a className={cx(pathname === '/projects' && styles.active)}>
+                Projects
+              </a>
             </Link>
           </li>
           <li>
             <Link href='/contacts'>
-              <a>Contacts</a>
+              <a className={cx(pathname === '/contacts' && styles.active)}>
+                Contacts
+              </a>
             </Link>
           </li>
         </ul>
