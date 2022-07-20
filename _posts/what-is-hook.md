@@ -1,13 +1,13 @@
 ---
-title: 'This is Hook article'
-excerpt: '가을로 하나의 불러 이름을 이네들은 파란 듯합니다. 딴은 어머니, 이름자 별 말 어머니, 마디씩 까닭입니다. 이 파란 지나고 듯합니다. 이름과, 그리고 하나에 버리었습니다. 가득 멀리 잔디가 책상을 청춘이 있습니다.'
-coverImage: '/images/posts/third/cover.jpg'
-date: '2022-04-29T05:35:07.322Z'
+title: 'What is Hook?'
+excerpt: '함수 컴포넌트의 꽃 훅에 대해 알아보자!'
+coverImage: '/images/posts/what-is-hook/cover.jpg'
+date: '2022-04-29'
 ogImage:
-  url: '/images/posts/third/cover.jpg'
+  url: '/images/posts/what-is-hook/cover.jpg'
 ---
 
-## 1. Hooks란?
+## Hooks란?
 
 Hooks는 React 16.8 버전에서 **클래스 컴포넌트만을 사용할 때 부딪히는 수많은 문제들을 해결**하기 위해서 나온 것이다.
 
@@ -39,6 +39,30 @@ Hooks가 존재하지 않았을 때 클래스 컴포넌트만이 state를 저장
 
 리액트는 `useState`를 통해 생성한 상태에 접근하고 유지하기 위해 클로저를 이용하여 함수 컴포넌트 바깥에 state를 저장한다. 이 상태들은 리액트 컴포넌트 바깥에 선언되어 있는 변수들이기 때문에 업데이트 된 이후에도 접근할 수 있게 되는 것이다.
 
-## 2. Hooks 종류 - useState
+## Hooks 종류 - useState
 
 `useState`는 함수 컴포넌트 안에서 state를 사용할 수 있도록 해준다. class의 `this.state`, `this.setState`와 동일한 기능을 한다.
+
+- `useState`의 인자는 `initialState`다.
+- `useState`가 반환한 것을 구조 분해 할당을 이용하여 원하는 이름으로 설정할 수 있다.
+  - 첫 번째 인자는 상태, 두 번째 인자는 상태를 변경하는 함수가 들어간다.
+
+## Hooks 종류 - useEffect
+
+`useEffect`는 함수 컴포넌트 안에서 side effect를 수행할 수 있게 해준다. 클래스 컴포넌트의 라이프사이클과 유사한 기능을 한다고 할 수 있다.
+
+`useEffect`를 활용하여 `componentDidMount`, `componentDidUpdate`, `componentWillUnmount`를 모두 대체할 수 있다.
+
+- `useEffect`는 첫 번째 인자로 콜백 함수, 두 번째 인자로 의존성 배열을 받는다.
+  - 의존성 배열을 빈 배열로 두면 `componentDidMount`처럼 동작한다.
+  - 의존성 배열에 상태를 넣으면 `compnentDidUpdate`처럼 동작한다.
+  - `useEffect`의 `return` 값을 넣으면 `componentWillUnmount`처럼 동작한다.
+  - 의존성 배열 인자를 생략한다면 컴포넌트가 리렌더링 될 때마다 호출된다.
+
+한편 `useEffect` 안에서 사용되는 `state` 혹은 `props`가 있다면 의존성 배열에 넣어주어야 한다. 그렇게 하지 않으면 콜백이 실행될 때 최신 상태를 반영하지 않을 수 있기 떄문이다.
+
+## Hooks 규칙
+
+- Hook은 리액트 함수의 최상위에서만 호출해야 한다. 이 규칙을 따라야지만 컴포넌트가 렌더링될 때마다 항상 동일한 순서로 Hook이 호출되는 것이 보장된다.
+- React 함수 그리고 다른 커스텀 Hook에서만 Hook을 호출해야 한다.
+- 커스텀 Hook을 만들 땐 `use`를 접두사로 사용해야 한다.

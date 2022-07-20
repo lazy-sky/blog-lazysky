@@ -19,6 +19,7 @@ const PostPreview = ({ post }: IPostPreivewProps) => {
         <a>
           <div className={styles.postPreview}>
             <Image
+              priority
               src={coverImage}
               alt={`Cover Image for ${title}`}
               width='100%'
