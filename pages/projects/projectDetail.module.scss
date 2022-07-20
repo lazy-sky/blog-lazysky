@@ -1,0 +1,74 @@
+@import 'styles/index';
+
+.projectDetail {
+  padding: 32px;
+  background-color: $WHITE;
+  border: 2px solid $LINE;
+  border-top: none;
+
+  .title {
+    @include heading1;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .coverImage {
+    padding: 0 10%;
+    border-bottom: 1px solid $LINE;
+  }
+
+  .meta {
+    padding: 32px 24px;
+    background-color: $WHITE;
+    border-bottom: 1px solid $LINE;
+
+    .digest {
+      @include heading5;
+      margin-bottom: 16px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+      color: $GRAY2;
+
+      .tag {
+        @include body2;
+        padding: 4px 12px;
+        background-color: $PRIMARY;
+        border-radius: 4px;
+      }
+
+      .tech {
+        background-color: $SECONDARY;
+      }
+    }
+
+    .links {
+      @include body2;
+      display: flex;
+      gap: 12px;
+
+      > a {
+        padding: 4px 12px;
+        color: $GRAY2;
+        text-decoration: underline;
+        background-color: $GRAYE;
+        border-radius: 4px;
+
+        &:hover {
+          color: $HIGHLIGHT;
+        }
+      }
+    }
+  }
+
+  .article {
+    padding: 24px;
+    margin: 16px 0;
+    background-color: $WHITE;
+    border-radius: 20px;
+  }
+}

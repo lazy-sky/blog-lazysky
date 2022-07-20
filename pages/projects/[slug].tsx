@@ -2,12 +2,14 @@
 import Image from 'next/image'
 import axios from 'axios'
 import parse from 'html-react-parser'
+import cx from 'classnames'
 
 import { IProject } from 'types/notionData'
 import markdownToHtml from 'utils/markdownToHtml'
 import { getProjectBySlug } from 'utils/documents'
 
 import markdownStyles from 'styles/markdown.module.scss'
+import styles from './projectDetail.module.scss'
 
 interface IProjectDetailProps {
   properties: any
@@ -22,8 +24,9 @@ interface ITag {
 const ProjectDetail = (props: IProjectDetailProps) => {
   const {
     properties: { Photo, Name, Tags, Tech, Deploy, Code },
-    article,
+    article: { content, digest },
   } = props
+
   const title = Name.results[0].title.plain_text
   const imageSrc = Photo.files[0].file.url
   const deployUrl = Deploy.url
@@ -32,29 +35,36 @@ const ProjectDetail = (props: IProjectDetailProps) => {
   const techs: ITag[] = Tech.multi_select
 
   return (
-    <div>
-      <Image
-        priority
-        src={imageSrc}
-        height={100}
-        width={100}
-        layout='responsive'
-        objectFit='cover'
-        alt='프로젝트 대표 사진'
-      />
-      <div>
-        <h3>{title}</h3>
-        <ul>
+    <div className={styles.projectDetail}>
+      <h1 className={styles.title}>{title}</h1>
+      <div className={styles.coverImage}>
+        <Image
+          priority
+          src={imageSrc}
+          height={300}
+          width={300}
+          layout='responsive'
+          objectFit='contain'
+          alt='프로젝트 대표 사진'
+        />
+      </div>
+      <div className={styles.meta}>
+        <div className={styles.digest}>{digest}</div>
+        <ul className={styles.tags}>
           {tags.map(({ id, name }) => (
-            <li key={id}>{name}</li>
+            <li key={id} className={styles.tag}>
+              {name}
+            </li>
           ))}
         </ul>
-        <ul>
+        <ul className={styles.tags}>
           {techs.map(({ id, name }) => (
-            <li key={id}>{name}</li>
+            <li key={id} className={cx(styles.tag, styles.tech)}>
+              {name}
+            </li>
           ))}
         </ul>
-        <div>
+        <div className={styles.links}>
           <a href={deployUrl} target='_blank' rel='noreferrer'>
             Deploy
           </a>
@@ -63,8 +73,9 @@ const ProjectDetail = (props: IProjectDetailProps) => {
           </a>
         </div>
       </div>
-      {/* <h1 className={styles.title}>{article.title}</h1> */}
-      <div className={markdownStyles.markdown}>{parse(article.content)}</div>
+      <div className={cx(styles.article, markdownStyles.markdown)}>
+        {parse(content)}
+      </div>
     </div>
   )
 }
@@ -103,14 +114,7 @@ export async function getStaticProps({ params }: any) {
   }
 
   const fileName = properties.Name.results[0].title.plain_text
-  const article = getProjectBySlug(fileName, [
-    'title',
-    'date',
-    'slug',
-    'content',
-    'ogImage',
-    'coverImage',
-  ])
+  const article = getProjectBySlug(fileName, ['title', 'content', 'digest'])
   const content = await markdownToHtml(article.content || '')
 
   return {
