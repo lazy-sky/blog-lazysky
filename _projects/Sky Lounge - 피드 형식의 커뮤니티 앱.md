@@ -1,10 +1,6 @@
 ---
 title: 'Sky Lounge - 피드 형식의 커뮤니티 앱'
-excerpt: '실시간 업데이트되는 타임 피드 기반의 커뮤니티 웹 서비스'
-coverImage: '/images/posts/first/cover.jpg'
-date: '2022-04-29T05:35:07.322Z'
-ogImage:
-  url: '/images/posts/first/cover.jpg'
+digest: '실시간 업데이트되는 타임 피드 기반의 커뮤니티 웹 서비스'
 ---
 ## Features
 
