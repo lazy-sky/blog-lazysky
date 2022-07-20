@@ -8,6 +8,7 @@ import cx from 'classnames'
 import { IProject } from 'types/notionData'
 import markdownToHtml from 'utils/markdownToHtml'
 import { getProjectBySlug } from 'utils/documents'
+import Comments from 'components/Comments'
 
 import markdownStyles from 'styles/markdown.module.scss'
 import styles from './projectDetail.module.scss'
@@ -36,55 +37,58 @@ const ProjectDetail = (props: IProjectDetailProps) => {
   const techs: ITag[] = Tech.multi_select
 
   return (
-    <div className={styles.projectDetail}>
-      <Head>
-        <title>{title} | LazySky Blog</title>
-        <meta
-          name='description'
-          content={`${title} project written by lazy sky`}
-        />
-      </Head>
-      <h1 className={styles.title}>{title}</h1>
-      <div className={styles.coverImage}>
-        <Image
-          priority
-          src={imageSrc}
-          width='100%'
-          height='100%'
-          layout='responsive'
-          objectFit='contain'
-          alt='프로젝트 대표 사진'
-        />
-      </div>
-      <div className={styles.meta}>
-        <div className={styles.digest}>{digest}</div>
-        <ul className={styles.tags}>
-          {tags.map(({ id, name }) => (
-            <li key={id} className={styles.tag}>
-              {name}
-            </li>
-          ))}
-        </ul>
-        <ul className={styles.tags}>
-          {techs.map(({ id, name }) => (
-            <li key={id} className={cx(styles.tag, styles.tech)}>
-              {name}
-            </li>
-          ))}
-        </ul>
-        <div className={styles.links}>
-          <a href={deployUrl} target='_blank' rel='noreferrer'>
-            Deploy
-          </a>
-          <a href={codeUrl} target='_blank' rel='noreferrer'>
-            Codes
-          </a>
+    <>
+      <div className={styles.projectDetail}>
+        <Head>
+          <title>{title} | LazySky Blog</title>
+          <meta
+            name='description'
+            content={`${title} project written by lazy sky`}
+          />
+        </Head>
+        <h1 className={styles.title}>{title}</h1>
+        <div className={styles.coverImage}>
+          <Image
+            priority
+            src={imageSrc}
+            width='100%'
+            height='100%'
+            layout='responsive'
+            objectFit='contain'
+            alt='프로젝트 대표 사진'
+          />
+        </div>
+        <div className={styles.meta}>
+          <div className={styles.digest}>{digest}</div>
+          <ul className={styles.tags}>
+            {tags.map(({ id, name }) => (
+              <li key={id} className={styles.tag}>
+                {name}
+              </li>
+            ))}
+          </ul>
+          <ul className={styles.tags}>
+            {techs.map(({ id, name }) => (
+              <li key={id} className={cx(styles.tag, styles.tech)}>
+                {name}
+              </li>
+            ))}
+          </ul>
+          <div className={styles.links}>
+            <a href={deployUrl} target='_blank' rel='noreferrer'>
+              Deploy
+            </a>
+            <a href={codeUrl} target='_blank' rel='noreferrer'>
+              Codes
+            </a>
+          </div>
+        </div>
+        <div className={cx(styles.article, markdownStyles.markdown)}>
+          {parse(content)}
         </div>
       </div>
-      <div className={cx(styles.article, markdownStyles.markdown)}>
-        {parse(content)}
-      </div>
-    </div>
+      <Comments />
+    </>
   )
 }
 

@@ -5,6 +5,7 @@ import parse from 'html-react-parser'
 import IPost from 'types/post'
 import { getAllPosts, getPostBySlug } from 'utils/documents'
 import markdownToHtml from 'utils/markdownToHtml'
+import Comments from 'components/Comments'
 
 import markdownStyles from 'styles/markdown.module.scss'
 import styles from './post.module.scss'
@@ -19,18 +20,21 @@ const Post = ({ post, otherPosts }: IPostProps) => {
   const { slug } = router.query
 
   return (
-    <div className={styles.post}>
-      <Head>
-        <title>{post.title} | LazySky Blog</title>
-        <meta
-          name='description'
-          content={`post about ${slug} written by lazy sky`}
-        />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-      <h1 className={styles.title}>{post.title}</h1>
-      <div className={markdownStyles.markdown}>{parse(post.content)}</div>
-    </div>
+    <>
+      <div className={styles.post}>
+        <Head>
+          <title>{post.title} | LazySky Blog</title>
+          <meta
+            name='description'
+            content={`post about ${slug} written by lazy sky`}
+          />
+          <link rel='icon' href='/favicon.ico' />
+        </Head>
+        <h1 className={styles.title}>{post.title}</h1>
+        <div className={markdownStyles.markdown}>{parse(post.content)}</div>
+      </div>
+      <Comments />
+    </>
   )
 }
 
