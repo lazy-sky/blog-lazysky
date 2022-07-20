@@ -1,4 +1,5 @@
 /* eslint-disable max-lines */
+import Head from 'next/head'
 import Image from 'next/image'
 import axios from 'axios'
 import parse from 'html-react-parser'
@@ -36,6 +37,13 @@ const ProjectDetail = (props: IProjectDetailProps) => {
 
   return (
     <div className={styles.projectDetail}>
+      <Head>
+        <title>{title} | LazySky Blog</title>
+        <meta
+          name='description'
+          content={`${title} project written by lazy sky`}
+        />
+      </Head>
       <h1 className={styles.title}>{title}</h1>
       <div className={styles.coverImage}>
         <Image
