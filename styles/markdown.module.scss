@@ -10,12 +10,39 @@
   blockquote {
     @include body3;
   }
-}
 
-.markdown h2 {
-  @include heading2;
-}
+  code {
+    padding: 0 4px;
+    color: $CODE;
+    background-color: $GRAYE;
+  }
 
-.markdown h3 {
-  @include heading3;
+  li {
+    margin-left: 24px;
+    list-style-type: circle;
+  }
+
+  h1 {
+    @include heading1;
+    margin: 12px 0;
+  }
+
+  h2 {
+    @include heading2;
+    margin: 8px 0;
+  }
+
+  h3 {
+    @include heading3;
+    margin: 4px 0;
+  }
+
+  h4 {
+    @include heading4;
+    margin: 2px 0;
+  }
+
+  strong {
+    font-weight: bold;
+  }
 }
