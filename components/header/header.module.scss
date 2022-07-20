@@ -1,7 +1,6 @@
 @import 'styles/index';
 
 .header {
-  @include heading5;
   position: sticky;
   top: 0;
   left: 0;
@@ -17,17 +16,23 @@
     display: none;
   }
 
-  .navigation ul {
-    display: flex;
-    gap: 16px;
-    justify-content: flex-end;
+  .navigation {
+    ul {
+      display: flex;
+      gap: 16px;
+      justify-content: flex-end;
 
-    a:hover {
-      color: rgba($HIGHLIGHT, 0.8);
-    }
+      a {
+        @include heading5;
 
-    .active {
-      color: $HIGHLIGHT;
+        &:hover {
+          color: rgba($HIGHLIGHT, 0.8);
+        }
+      }
+
+      .active {
+        color: $HIGHLIGHT;
+      }
     }
   }
 

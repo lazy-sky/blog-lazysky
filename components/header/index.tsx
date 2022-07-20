@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -15,6 +15,10 @@ const Header = () => {
   const handleMenuClick = () => {
     setIsMenuShow((prev) => !prev)
   }
+
+  useEffect(() => {
+    setIsMenuShow(false)
+  }, [pathname])
 
   return (
     <header className={styles.header}>
