@@ -35,5 +35,10 @@ export interface IProject {
         color: string
       }[]
     }
+    Order: {
+      rich_text: {
+        plain_text: string
+      }[]
+    }
   }
 }

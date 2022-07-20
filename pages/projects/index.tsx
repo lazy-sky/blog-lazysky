@@ -12,6 +12,12 @@ interface IPostsProps {
 }
 
 const Projects = ({ results }: IPostsProps) => {
+  results.sort(
+    (a, b) =>
+      Number(a.properties.Order.rich_text[0].plain_text) -
+      Number(b.properties.Order.rich_text[0].plain_text)
+  )
+
   return (
     <>
       <Head>
