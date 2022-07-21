@@ -22,17 +22,6 @@ const Home: NextPage = () => {
           환영합니다!
         </TypeitText>
       </h1>
-      <div className={styles.logo}>
-        <Image
-          priority
-          src={TorsoLogoSVG}
-          width='100%'
-          height='100%'
-          layout='responsive'
-          objectFit='contain'
-          alt='logo'
-        />
-      </div>
       <ul className={styles.links}>
         <li className={styles.link}>
           <Link href='/posts'>
@@ -71,6 +60,17 @@ const Home: NextPage = () => {
           </a>
         </li>
       </ul>
+      <div className={styles.logo}>
+        <Image
+          priority
+          src={TorsoLogoSVG}
+          width='100%'
+          height='100%'
+          layout='responsive'
+          objectFit='contain'
+          alt='logo'
+        />
+      </div>
     </div>
   )
 }
