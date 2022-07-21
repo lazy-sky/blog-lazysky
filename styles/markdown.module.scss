@@ -9,10 +9,29 @@
 
   blockquote {
     @include body3;
+    padding-left: 12px;
+    margin: 8px 0;
+    border-left: 4px solid $HIGHLIGHT;
+  }
+
+  pre {
+    padding: 16px;
+    margin: 12px 0;
+    overflow: scroll;
+    white-space: pre;
+    background-color: $GRAYE;
+    border-radius: 8px;
+
+    code {
+      color: $GRAY3;
+      white-space: pre;
+    }
   }
 
   code {
+    @include body2;
     padding: 0 4px;
+    overflow: scroll;
     color: $CODE;
     background-color: $GRAYE;
   }
