@@ -8,6 +8,7 @@ import cx from 'classnames'
 import { IProject } from 'types/notionData'
 import markdownToHtml from 'utils/markdownToHtml'
 import { getProjectBySlug } from 'utils/documents'
+import PageHeader from 'components/pageHeader'
 import Comments from 'components/Comments'
 
 import markdownStyles from 'styles/markdown.module.scss'
@@ -38,15 +39,16 @@ const ProjectDetail = (props: IProjectDetailProps) => {
 
   return (
     <>
+      <Head>
+        <title>{title} | LazySky Blog</title>
+        <meta
+          name='description'
+          content={`${title} project written by lazy sky`}
+        />
+      </Head>
+      <PageHeader title='Project' hasBackBtn />
       <div className={styles.projectDetail}>
-        <Head>
-          <title>{title} | LazySky Blog</title>
-          <meta
-            name='description'
-            content={`${title} project written by lazy sky`}
-          />
-        </Head>
-        <h1 className={styles.title}>{title}</h1>
+        <h2 className={styles.title}>{title}</h2>
         <div className={styles.coverImage}>
           <Image
             priority

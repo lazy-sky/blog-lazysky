@@ -4,7 +4,6 @@
   padding: 32px;
   background-color: $WHITE;
   border: 2px solid $LINE;
-  border-top: none;
 
   .title {
     @include heading1;
