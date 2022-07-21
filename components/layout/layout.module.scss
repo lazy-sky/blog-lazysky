@@ -5,6 +5,6 @@
   background: $SURFACE;
 
   main {
-    min-height: 100vh;
+    min-height: calc(100vh - $HEADER - $FOOTER);
   }
 }

@@ -8,6 +8,7 @@
   display: flex;
   gap: 16px;
   justify-content: space-between;
+  min-height: $HEADER;
   padding: 20px 28px;
   background-color: $WHITE;
   border-bottom: 2px solid $LINE;
