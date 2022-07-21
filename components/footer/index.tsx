@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { GithubIcon, InstagramIcon } from '../../assets/images'
+import { GithubIcon, InstagramBlackIcon } from '../../assets/images'
 
 import styles from './footer.module.scss'
 
@@ -31,7 +31,7 @@ const Footer = () => {
           >
             <Image
               priority
-              src={InstagramIcon}
+              src={InstagramBlackIcon}
               height={24}
               width={24}
               alt='instagram'
