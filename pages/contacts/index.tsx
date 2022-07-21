@@ -28,7 +28,7 @@ const Contacts: NextPage = () => {
           <Image src={KakaoIcon} alt='Kakao talk' width={64} height={64} />
         </a>
         <a
-          href='https://open.kakao.com/o/siQfK7ke'
+          href='https://www.instagram.com/sky_lazy'
           target='_blank'
           rel='noreferrer'
         >
