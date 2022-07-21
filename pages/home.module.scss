@@ -1,0 +1,52 @@
+@import 'styles/index';
+
+.home {
+  overflow: scroll;
+
+  .title {
+    @include heading1;
+    margin: 20px 0;
+    color: $GRAY3;
+    text-align: center;
+
+    .name {
+      padding: 0 2px;
+      color: $HIGHLIGHT;
+    }
+  }
+
+  .logo {
+    padding: 0 20%;
+    margin: 20px 0;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 0;
+
+    .link {
+      @include heading5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 240px;
+      height: 96px;
+      color: $GRAY2;
+      text-align: center;
+      background-color: $WHITE;
+      border-radius: 16px;
+
+      &:hover {
+        color: $HIGHLIGHT;
+        background-color: $GRAYE;
+      }
+
+      * {
+        color: inherit;
+      }
+    }
+  }
+}
