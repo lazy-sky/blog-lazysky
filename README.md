@@ -1,1 +1,1 @@
-# blog-with-notion
+# blog-lazysky
