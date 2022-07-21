@@ -5,13 +5,15 @@ interface ITypeitTextProps {
   speed?: number
 }
 
-const TypeitText = ({ children, speed = 20 }: ITypeitTextProps) => {
+const TypeitText = ({ children, speed = 35 }: ITypeitTextProps) => {
   return (
     <TypeIt
       options={{
         speed,
         lifeLike: true,
-        cursor: false,
+        afterComplete: (instance: any) => {
+          instance.destroy()
+        },
       }}
     >
       {children}
