@@ -2,7 +2,6 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 
-import TypeitText from 'components/TypeitText'
 import { TorsoLogoSVG, PostIcon, ProjectIcon } from 'assets/images'
 
 import styles from './home.module.scss'
@@ -17,10 +16,8 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <h1 className={styles.title}>
-        <TypeitText>
-          <span className={styles.name}>Lazysky</span>의 블로그에 오신 것을
-          환영합니다!
-        </TypeitText>
+        <span className={styles.name}>Lazysky</span>의 블로그에 오신 것을
+        환영합니다!
       </h1>
       <ul className={styles.links}>
         <li className={styles.link}>
