@@ -16,6 +16,8 @@ const Tags = ({ tags, selectedTags, handleTagClick }: ITagsProps) => {
     setIsFolded((prev) => !prev)
   }
 
+  if (tags.length === 0) return null
+
   return (
     <>
       <button
