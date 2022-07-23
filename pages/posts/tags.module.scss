@@ -20,6 +20,16 @@
     background-color: $GRAYE;
   }
 
+  &.folded {
+    flex-wrap: wrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   .tag {
     @include body3;
     padding: 4px 8px;
@@ -37,4 +47,10 @@
       background-color: $HIGHLIGHT;
     }
   }
+}
+
+.foldBtn {
+  @include body3;
+  padding: 0 4px;
+  color: $GRAY2;
 }
