@@ -1,5 +1,5 @@
 ---
-title: "더 나은 분기 처리에 관하여"
+title: "CSS의 다양한 선택자들"
 excerpt: 'CSS 선택자에는 기본적으로 전체, 태그, 클래스, 아이디 선택자가 있다. 이밖에도 앞선 선택자들보다는 다소 어렵지만 활용도가 높은 다양한 선택자들이 있는데 이들에 대해 알아보고자 한다.'
 tags: ['CSS']
 coverImage: "/images/posts/css-selectors/cover.jpg"
