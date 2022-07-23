@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Head from 'next/head'
 
 import IPost from 'types/post'
@@ -15,6 +16,7 @@ interface IPostsProps {
 const Posts = ({ posts }: IPostsProps) => {
   const tagsMap = new Map<string | undefined, number>()
   const tags: (string | number | undefined)[][] = []
+  const [selectedTags, setSelectedTags] = useState<string[]>([])
 
   posts
     .map((post) => post.tags)
@@ -27,6 +29,15 @@ const Posts = ({ posts }: IPostsProps) => {
     tags.push([tag, count])
   })
 
+  const handleTagClick = (tag: string) => {
+    if (selectedTags.includes(tag)) {
+      setSelectedTags(selectedTags.filter((x) => x !== tag))
+      return
+    }
+
+    setSelectedTags((prev) => [...prev, tag])
+  }
+
   return (
     <>
       <Head>
@@ -36,11 +47,19 @@ const Posts = ({ posts }: IPostsProps) => {
       </Head>
       <PageHeader title='Posts' hasBackBtn />
       <div className={styles.posts}>
-        <Tags tags={tags} />
+        <Tags
+          tags={tags}
+          selectedTags={selectedTags}
+          handleTagClick={handleTagClick}
+        />
         <section>
           <ol>
             {posts?.map((post) => (
-              <PostPreview key={post.slug} post={post} />
+              <PostPreview
+                key={post.slug}
+                post={post}
+                selectedTags={selectedTags}
+              />
             ))}
           </ol>
         </section>

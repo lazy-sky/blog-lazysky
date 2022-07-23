@@ -31,5 +31,10 @@
     .count {
       color: $GRAY6;
     }
+
+    &.selected {
+      color: $WHITE;
+      background-color: $HIGHLIGHT;
+    }
   }
 }
