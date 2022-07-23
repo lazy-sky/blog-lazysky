@@ -7,13 +7,14 @@ import { getAllPosts, getPostBySlug } from 'utils/documents'
 import markdownToHtml from 'utils/markdownToHtml'
 import PageHeader from 'components/pageHeader'
 import Comments from 'components/Comments'
+import PostPreview from 'components/PostPreview'
 
 import markdownStyles from 'styles/markdown.module.scss'
 import styles from './post.module.scss'
 
 interface IPostProps {
   post: IPost
-  otherPosts: any
+  otherPosts: IPost[]
 }
 
 // TODO: otherPosts 이용해서 이전, 이후 게시글 표시
@@ -32,11 +33,32 @@ const Post = ({ post, otherPosts }: IPostProps) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <PageHeader title='Post' hasBackBtn />
-      <div className={styles.post}>
+      <section className={styles.post}>
         <h2 className={styles.title}>{post.title}</h2>
         <div className={markdownStyles.markdown}>{parse(post.content)}</div>
-      </div>
+      </section>
       <Comments />
+      <section className={styles.otherPosts}>
+        <h5 className={styles.otherPostsTitle}>다른 글 읽기</h5>
+        {otherPosts.map((otherPost, index) => {
+          if (!otherPost) {
+            return (
+              <div className={styles.noPost}>
+                {index === 0 ? '이전 글이 없습니다.' : '다음 글이 없습니다.'}
+              </div>
+            )
+          }
+
+          return (
+            <>
+              <div className={styles.prevOrNext}>
+                {index === 0 ? '이전 글' : '다음 글'}
+              </div>
+              <PostPreview key={otherPost.slug} post={otherPost} />
+            </>
+          )
+        })}
+      </section>
     </>
   )
 }

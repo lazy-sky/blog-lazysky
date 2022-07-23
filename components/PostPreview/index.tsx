@@ -8,10 +8,10 @@ import styles from './postPreview.module.scss'
 
 interface IPostPreivewProps {
   post: IPost
-  selectedTags: string[]
+  selectedTags?: string[]
 }
 
-const PostPreview = ({ post, selectedTags }: IPostPreivewProps) => {
+const PostPreview = ({ post, selectedTags = [] }: IPostPreivewProps) => {
   const { title, coverImage, date, excerpt, slug, tags } = post
 
   if (

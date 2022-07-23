@@ -11,3 +11,25 @@
     text-align: center;
   }
 }
+
+.otherPosts {
+  padding: 0 24px;
+
+  &Title {
+    @include heading5;
+    margin: 16px 0;
+  }
+
+  .prevOrNext {
+    @include body1;
+    margin: 8px 0;
+    margin-left: 8px;
+  }
+
+  .noPost {
+    @include body1;
+    padding: 8px 0;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+}
