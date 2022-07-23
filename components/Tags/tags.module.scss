@@ -10,6 +10,7 @@
   scrollbar-width: auto; // Firefox
   &::-webkit-scrollbar {
     display: block; // Chrome
+    height: 8px;
   }
 
   &::-webkit-scrollbar-thumb {

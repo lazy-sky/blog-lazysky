@@ -4,7 +4,7 @@ import Head from 'next/head'
 import IPost from 'types/post'
 import { getAllPosts } from 'utils/documents'
 import PageHeader from 'components/pageHeader'
-import Tags from './Tags'
+import Tags from 'components/Tags'
 import PostPreview from 'components/PostPreview'
 
 import styles from './posts.module.scss'
