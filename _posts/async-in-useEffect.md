@@ -1,6 +1,7 @@
 ---
 title: 'useEffect와 비동기'
 excerpt: "useEffect 안에서 async await 키워드를 통해서 비동기 데이터 로딩을 시도하자 경고 메시지가 떴다."
+tags: ['React', '문제해결', 'async', 'Hook', 'useEffect']
 coverImage: '/images/posts/async-in-useEffect/cover.jpg'
 date: '2021-12-20'
 ogImage:

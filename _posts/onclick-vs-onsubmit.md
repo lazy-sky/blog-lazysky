@@ -1,6 +1,7 @@
 ---
 title: 'onClick과 onSubmit의 차이점'
 excerpt: "리액트로 로그인 기능을 구현하던 중에 '로그인' 버튼을 만들고 있었다. 그런데 이 버튼의 이벤트핸들링을 onClick과 onSubmit 중 무엇으로 해야하는지 고민되었다."
+tags: ['Event Handler']
 coverImage: '/images/posts/onclick-vs-onsubmit/cover.jpg'
 date: '2021-09-30'
 ogImage:

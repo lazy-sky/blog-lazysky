@@ -1,6 +1,7 @@
 ---
 title: "리액트 이벤트 핸들러 네이밍 컨벤션"
 excerpt: '리액트를 사용하면서 매번 주먹구구식으로 함수 이름을 짓는 것 같아 공식적인 네이밍 컨벤션을 찾아보았다. '
+tags: ['React', 'Convention', 'Naming', 'Event Handler']
 coverImage: "/images/posts/event-handler-naming/cover.jpg"
 date: '2021-12-31'
 ogImage:

@@ -1,6 +1,7 @@
 ---
 title: "useMemo와 useCallback"
 excerpt: '단지 익숙하지 않은 기술을 배우지 않으려고 하는 나의 좁은 마음때문에 Hook 사용을 미뤄왔다.'
+tags: ['React', '문제해결', 'Hook', 'useMemo', 'useCallback']
 coverImage: "/images/posts/useMemo-and-useCallback/cover.jpg"
 date: '2021-12-30'
 ogImage:

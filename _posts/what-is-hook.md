@@ -1,6 +1,7 @@
 ---
 title: 'What is Hook?'
 excerpt: '함수 컴포넌트의 꽃 훅에 대해 알아보자!'
+tags: ['React', 'Hook']
 coverImage: '/images/posts/what-is-hook/cover.jpg'
 date: '2022-04-29'
 ogImage:

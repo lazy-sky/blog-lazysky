@@ -1,6 +1,7 @@
 ---
 title: "setState가 제대로 작동하지 않을 때"
 excerpt: 'setState가 의도치 않게 동작하지 않는 경우가 있다. 처음엔 그냥 우회해서 다른 방법으로 문제를 해결(회피)했던 것 같다. 문득 이를 제대로 해결해보고자 고민하다가 공식 문서 학습을 통해 해결의 실마리를 찾을 수 있었다.'
+tags: ['React', '문제해결', 'Hook', 'useState']
 coverImage: "/images/posts/setState/cover.jpg"
 date: '2022-01-02'
 ogImage:
