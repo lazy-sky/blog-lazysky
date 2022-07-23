@@ -12,7 +12,7 @@
   border-radius: 8px;
 
   &:hover {
-    color: $HIGHLIGHT;
+    color: $GRAY8;
     border-color: $HIGHLIGHT;
 
     .coverImage {
@@ -24,6 +24,20 @@
 
   .coverImage {
     background: url('/images/pattern.png');
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 4px 0;
+
+    .tag {
+      @include body4;
+      padding: 2px 6px;
+      background-color: $SECONDARY;
+      border-radius: 4px;
+    }
   }
 
   .title {

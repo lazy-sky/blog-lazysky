@@ -11,7 +11,7 @@ interface IPostPreivewProps {
 }
 
 const PostPreview = ({ post }: IPostPreivewProps) => {
-  const { title, coverImage, date, excerpt, slug } = post
+  const { title, coverImage, date, excerpt, slug, tags } = post
 
   return (
     <li>
@@ -28,6 +28,13 @@ const PostPreview = ({ post }: IPostPreivewProps) => {
               className={styles.coverImage}
             />
             <div>
+              <ul className={styles.tags}>
+                {tags?.map((tag) => (
+                  <li key={tag} className={styles.tag}>
+                    {tag}
+                  </li>
+                ))}
+              </ul>
               <h3 className={styles.title}>{title}</h3>
               <time dateTime={date} className={styles.createdAt}>
                 {dayjs(date).format('YYYY / MM / DD')}

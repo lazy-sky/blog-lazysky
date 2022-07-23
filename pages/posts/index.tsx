@@ -30,7 +30,14 @@ const Posts = ({ posts }: IPostsProps) => {
 }
 
 export async function getStaticProps() {
-  const posts = getAllPosts(['title', 'date', 'slug', 'coverImage', 'excerpt'])
+  const posts = getAllPosts([
+    'title',
+    'date',
+    'slug',
+    'coverImage',
+    'excerpt',
+    'tags',
+  ])
 
   return {
     props: {
