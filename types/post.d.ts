@@ -7,6 +7,7 @@ interface IPost {
   ogImage: {
     url: string
   }
+  tags?: string[]
   content: string
 }
 
