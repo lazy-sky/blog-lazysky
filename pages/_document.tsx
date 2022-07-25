@@ -1,5 +1,4 @@
 import { Head, Html, Main, NextScript } from 'next/document'
-import Script from 'next/script'
 
 const Document = () => {
   return (
@@ -9,9 +8,9 @@ const Document = () => {
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
         />
-        <Script
+        <script
           id='gtag-init'
-          strategy='afterInteractive'
+          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
             __html: `
         window.dataLayer = window.dataLayer || [];
