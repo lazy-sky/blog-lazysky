@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 import parse from 'html-react-parser'
 
 import IPost from 'types/post'
@@ -17,7 +18,6 @@ interface IPostProps {
   otherPosts: IPost[]
 }
 
-// TODO: otherPosts 이용해서 이전, 이후 게시글 표시
 const Post = ({ post, otherPosts }: IPostProps) => {
   const router = useRouter()
   const { slug } = router.query
@@ -35,6 +35,17 @@ const Post = ({ post, otherPosts }: IPostProps) => {
       <PageHeader title='Post' hasBackBtn />
       <section className={styles.post}>
         <h2 className={styles.title}>{post.title}</h2>
+        <div className={styles.coverImage}>
+          <Image
+            priority
+            src={post.coverImage}
+            width='100%'
+            height='100%'
+            layout='responsive'
+            objectFit='contain'
+            alt='게시글 대표 이미지'
+          />
+        </div>
         <div className={markdownStyles.markdown}>{parse(post.content)}</div>
       </section>
       <Comments />
