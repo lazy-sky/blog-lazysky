@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 const Comments = () => {
   return (
     <section
@@ -19,4 +21,4 @@ const Comments = () => {
   )
 }
 
-export default Comments
+export default memo(Comments)
