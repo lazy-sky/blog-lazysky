@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import { useClickAway } from 'react-use'
 import cx from 'classnames'
 
 import { FaceLogo, MenuIcon } from '../../assets/images'
@@ -11,10 +12,15 @@ import styles from './header.module.scss'
 const Header = () => {
   const { pathname } = useRouter()
   const [isMenuShow, setIsMenuShow] = useState(false)
+  const navRef = useRef(null)
 
   const handleMenuClick = () => {
     setIsMenuShow((prev) => !prev)
   }
+  useClickAway(navRef, () => {
+    if (!isMenuShow) return
+    setIsMenuShow(false)
+  })
 
   useEffect(() => {
     setIsMenuShow(false)
@@ -29,7 +35,10 @@ const Header = () => {
           </a>
         </Link>
       </div>
-      <nav className={cx(styles.navigation, isMenuShow && styles.active)}>
+      <nav
+        ref={navRef}
+        className={cx(styles.navigation, isMenuShow && styles.active)}
+      >
         <button
           type='button'
           onClick={handleMenuClick}
