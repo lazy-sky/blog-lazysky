@@ -2,7 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['s3.us-west-2.amazonaws.com', 'cdn.buymeacoffee.com'],
+    domains: [
+      'blog-lazysky.vercel.app',
+      's3.us-west-2.amazonaws.com',
+      'cdn.buymeacoffee.com',
+    ],
   },
 }
 
