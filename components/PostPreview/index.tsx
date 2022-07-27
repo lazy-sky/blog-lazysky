@@ -42,7 +42,7 @@ const PostPreview = ({ post, selectedTags = [] }: IPostPreivewProps) => {
                   </li>
                 ))}
               </ul>
-              <h3 className={styles.title}>{title}</h3>
+              <h5 className={styles.title}>{title}</h5>
               <time dateTime={date} className={styles.createdAt}>
                 {dayjs(date).format('YYYY / MM / DD')}
               </time>

@@ -1,0 +1,33 @@
+@import 'styles/index';
+
+.container {
+  .tableOfContents {
+    position: sticky;
+    top: calc($HEADER + 20px);
+    padding: 16px 24px;
+    background-color: $WHITE;
+    border: 2px solid $LINE;
+
+    li {
+      color: $GRAY6;
+
+      &:hover {
+        color: $GRAY2;
+        text-decoration: underline;
+      }
+    }
+
+    .heading3 {
+      @include body2;
+    }
+
+    .heading4 {
+      @include body3;
+      padding-left: 12px;
+    }
+  }
+
+  @media (max-width: calc($BREAKPOINT_MD - 1px)) {
+    display: none;
+  }
+}
