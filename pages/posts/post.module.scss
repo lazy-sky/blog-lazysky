@@ -1,5 +1,15 @@
 @import 'styles/index';
 
+.container {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  gap: 12px;
+
+  @media (max-width: calc($BREAKPOINT_MD - 1px)) {
+    display: block;
+  }
+}
+
 .post {
   padding: 32px;
   background-color: $WHITE;

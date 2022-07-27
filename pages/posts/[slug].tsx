@@ -9,6 +9,7 @@ import markdownToHtml from 'utils/markdownToHtml'
 import PageHeader from 'components/pageHeader'
 import Comments from 'components/Comments'
 import PostPreview from 'components/PostPreview'
+import TableOfContents from 'components/TableOfConents'
 
 import markdownStyles from 'styles/markdown.module.scss'
 import styles from './post.module.scss'
@@ -33,21 +34,24 @@ const Post = ({ post, otherPosts }: IPostProps) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <PageHeader title='Post' hasBackBtn />
-      <section className={styles.post}>
-        <h2 className={styles.title}>{post.title}</h2>
-        <div className={styles.coverImage}>
-          <Image
-            priority
-            src={post.coverImage}
-            width='100%'
-            height='100%'
-            layout='responsive'
-            objectFit='contain'
-            alt='게시글 대표 이미지'
-          />
-        </div>
-        <div className={markdownStyles.markdown}>{parse(post.content)}</div>
-      </section>
+      <div className={styles.container}>
+        <section className={styles.post}>
+          <h2 className={styles.title}>{post.title}</h2>
+          <div className={styles.coverImage}>
+            <Image
+              priority
+              src={post.coverImage}
+              width='100%'
+              height='100%'
+              layout='responsive'
+              objectFit='contain'
+              alt='게시글 대표 이미지'
+            />
+          </div>
+          <div className={markdownStyles.markdown}>{parse(post.content)}</div>
+        </section>
+        <TableOfContents />
+      </div>
       <Comments />
       <section className={styles.otherPosts}>
         <h5 className={styles.otherPostsTitle}>다른 글 읽기</h5>
