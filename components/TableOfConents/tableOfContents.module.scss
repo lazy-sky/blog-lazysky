@@ -9,11 +9,15 @@
     border: 2px solid $LINE;
 
     li {
-      color: $GRAY6;
+      margin-bottom: 8px;
 
-      &:hover {
-        color: $GRAY2;
-        text-decoration: underline;
+      a {
+        color: $GRAY6;
+
+        &:hover {
+          color: $GRAY2;
+          text-decoration: underline;
+        }
       }
     }
 
