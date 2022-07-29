@@ -33,8 +33,8 @@ const ProjectPreview = ({ project }: IPostPreivewProps) => {
           <Image
             priority
             src={photoUrl}
-            width='100%'
-            height='100%'
+            width={200}
+            height={200}
             layout='responsive'
             objectFit='contain'
             alt='프로젝트 대표 사진'
