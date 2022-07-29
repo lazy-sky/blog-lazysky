@@ -8,7 +8,7 @@ ogImage:
   url: '/images/posts/branch-processing/cover.jpg'
 ---
 
-## Guard clause
+### Guard clause
 
 분기 처리를 위해 가장 많이 활용되는 문법은 일반적으로 `if else` 조건문이나 `switch case` 조건문일 것이다. 다만 조건들이 많은 경우에 `if else` 남발하다보면 중첩 레벨이 깊어지고 그에 따라 가독성도 떨어지게 된다. 이는 유지보수성에 저하로 이어진다. 물론 `else`가 필요한 순간도 있겠지만, 그런 순간이 아니라면 `guard clause`를 적용하여 처리하는 것이 더 바람직하다.
 
@@ -54,7 +54,7 @@ function getInsuranceAmount(status) {
 ```
 
 
-## Object lookup
+### Object lookup
 
  `else if`의 남용을 줄여준다는 점에서 더 나아보일지도 모르지만, `switch`문은 절차 제어 흐름에서부터 비표준적인 방식(중괄호를 사용하지 않는)에 이르기까지 많은 문제가 있다. 많은 문제를 갖고 있다. 멈추기 위해선 수동으로 중단해야 한다. (`break`) 각 문은 디버깅을 난해하게 하고 중첩된 오류를 일으킬 수 있다. 그리하여 `switch`대신에 `Object lookup` 방식을 쓰는 것이 낫다. 
 
