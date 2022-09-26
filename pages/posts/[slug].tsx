@@ -107,7 +107,6 @@ export async function getStaticProps({ params }: IParams) {
 
   const currentPostIndex = allPosts.findIndex((x) => x.slug === post.slug)
 
-  // TODO: 페이지네이션
   const otherPosts = [
     allPosts[currentPostIndex + 1] || null,
     allPosts[currentPostIndex - 1] || null,
