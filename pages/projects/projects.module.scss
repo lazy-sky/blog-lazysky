@@ -1,24 +1,13 @@
 @import 'styles/index';
 
 .projects {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
   padding: 24px 32px;
   margin: 32px;
   background: #ffffff;
   border-radius: 16px;
   box-shadow: 12px 12px 0 $PRIMARY;
-
-  @media (min-width: calc($BREAKPOINT_SM - 1px)) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: calc($BREAKPOINT_MD - 1px)) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media (min-width: calc($BREAKPOINT_LG - 1px)) {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
