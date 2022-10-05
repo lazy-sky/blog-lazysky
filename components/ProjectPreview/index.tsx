@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
+// import Image from 'next/image'
 import { useRouter } from 'next/router'
-import Image from 'next/image'
 import cx from 'classnames'
 
 import { IProject } from 'types/notionData'
@@ -30,7 +31,8 @@ const ProjectPreview = ({ project }: IPostPreivewProps) => {
     <li key={id} className={styles.projectPreview}>
       <button type='button' onClick={handleClick}>
         <div className={styles.coverImage}>
-          <Image
+          {/* TODO: */}
+          {/* <Image
             priority
             src={photoUrl}
             width={200}
@@ -38,7 +40,8 @@ const ProjectPreview = ({ project }: IPostPreivewProps) => {
             layout='responsive'
             objectFit='contain'
             alt='프로젝트 대표 사진'
-          />
+          /> */}
+          <img src={photoUrl} alt='프로젝트 대표 사진' />
         </div>
         <div className={styles.info}>
           <h3 className={styles.title}>{title}</h3>
