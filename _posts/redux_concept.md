@@ -2,10 +2,10 @@
 title: 'Redux에 대한 주관적인 정리'
 excerpt: "React를 겨우 겨우 배우고 Redux를 처음 접했을 때의 그 당혹감이란...."
 tags: ['React', 'Redux', 'Flux']
-coverImage: '/images/posts/async-in-useEffect/cover.png'
+coverImage: '/images/posts/redux_concept/cover.png'
 date: '2022-10-05'
 ogImage:
-  url: '/images/posts/async-in-useEffect/cover.png'
+  url: '/images/posts/redux_concept/cover.png'
 ---
 
 ## 들어가며
