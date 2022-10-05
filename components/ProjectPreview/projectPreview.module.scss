@@ -1,9 +1,8 @@
 @import 'styles/index';
 
 .projectPreview {
-  width: 20vw;
   min-width: 200px;
-  max-width: 400px;
+  max-width: 20vw;
   color: $GRAY2;
   cursor: pointer;
   border-radius: 8px;
@@ -17,6 +16,12 @@
 
   .coverImage {
     background: url('/images/pattern.png');
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   .info {
