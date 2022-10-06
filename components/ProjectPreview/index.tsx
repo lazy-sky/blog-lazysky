@@ -1,5 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-// import Image from 'next/image'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 import cx from 'classnames'
 
@@ -31,8 +30,7 @@ const ProjectPreview = ({ project }: IPostPreivewProps) => {
     <li key={id} className={styles.projectPreview}>
       <button type='button' onClick={handleClick}>
         <div className={styles.coverImage}>
-          {/* TODO: */}
-          {/* <Image
+          <Image
             priority
             src={photoUrl}
             width={200}
@@ -40,8 +38,7 @@ const ProjectPreview = ({ project }: IPostPreivewProps) => {
             layout='responsive'
             objectFit='contain'
             alt='프로젝트 대표 사진'
-          /> */}
-          <img src={photoUrl} alt='프로젝트 대표 사진' />
+          />
         </div>
         <div className={styles.info}>
           <h3 className={styles.title}>{title}</h3>
