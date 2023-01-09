@@ -2,10 +2,20 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 
-import { TorsoLogoSVG, PostIcon, ProjectIcon } from 'assets/images'
+import { TorsoLogoSVG, PostIcon } from 'assets/images'
 
 import styles from './home.module.scss'
 import Link from 'next/link'
+
+const links = [
+  { href: '/posts', image: PostIcon, text: '게시글 보러가기' },
+  // { href: '/projects', image: ProjectIcon, text: '프로젝트 보러가기' },
+  {
+    href: 'https://www.buymeacoffee.com/lazysky',
+    image: 'https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg',
+    text: '주인장 커피 사주기',
+  },
+]
 
 const Home: NextPage = () => {
   return (
@@ -20,42 +30,16 @@ const Home: NextPage = () => {
         환영합니다!
       </h1>
       <ul className={styles.links}>
-        <li className={styles.link}>
-          <Link href='/posts'>
-            <a>
-              <Image src={PostIcon} alt='To Posts' width={32} height={32} />
-              <div>게시글 보러가기</div>
-            </a>
-          </Link>
-        </li>
-        <li className={styles.link}>
-          <Link href='/projects'>
-            <a>
-              <Image
-                src={ProjectIcon}
-                alt='To Projects'
-                width={32}
-                height={32}
-              />
-              <div>프로젝트 보러가기</div>
-            </a>
-          </Link>
-        </li>
-        <li className={styles.link}>
-          <a
-            href='https://www.buymeacoffee.com/lazysky'
-            target='_blank'
-            rel='noreferrer'
-          >
-            <Image
-              src='https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg'
-              alt='Buy me a coffee'
-              width={32}
-              height={32}
-            />
-            <div>주인장 커피 사주기</div>
-          </a>
-        </li>
+        {links.map(({ href, image, text }) => (
+          <li key={text} className={styles.link}>
+            <Link href={href}>
+              <a>
+                <Image src={image} alt={text} width={32} height={32} />
+                <div>{text}</div>
+              </a>
+            </Link>
+          </li>
+        ))}
       </ul>
       <div className={styles.logo}>
         <Image

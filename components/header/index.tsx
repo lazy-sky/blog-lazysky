@@ -60,13 +60,13 @@ const Header = () => {
               </a>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link href='/projects'>
               <a className={cx(pathname === '/projects' && styles.active)}>
                 Projects
               </a>
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link href='/contacts'>
               <a className={cx(pathname === '/contacts' && styles.active)}>
