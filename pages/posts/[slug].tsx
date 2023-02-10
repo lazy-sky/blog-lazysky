@@ -50,6 +50,7 @@ const Post = ({ post, otherPosts }: IPostProps) => {
           </div>
           <div className={markdownStyles.markdown}>{parse(post.content)}</div>
         </section>
+        {/* TODO: 페이지(포스트) 이동 시 목차가 바뀌지 않는 에러 */}
         <TableOfContents />
       </div>
       <Comments />
