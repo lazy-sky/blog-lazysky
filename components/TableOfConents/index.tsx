@@ -2,6 +2,11 @@ import { useHeadingsData } from 'hooks'
 
 import styles from './tableOfContents.module.scss'
 
+interface IHeading {
+  id: string
+  title: string
+}
+
 const TableOfContents = () => {
   const { nestedHeadings } = useHeadingsData()
 
@@ -14,7 +19,7 @@ const TableOfContents = () => {
               <a href={`#${heading.id}`}>{heading.title}</a>
               {heading.items.length > 0 && (
                 <ul className={styles.heading3}>
-                  {heading.items.map((child: any) => (
+                  {heading.items.map((child: IHeading) => (
                     <li key={child.id}>
                       <a href={`#${child.id}`}>{child.title}</a>
                     </li>

@@ -1,8 +1,13 @@
-import { useState } from 'react'
-import { useMount } from 'react-use'
+import { useEffect, useState } from 'react'
 
-const getNestedHeadings = (headingElements: any[]) => {
-  const nestedHeadings: any[] = []
+interface IHeading {
+  id: string
+  title: string
+  items: IHeading[]
+}
+
+export const getNestedHeadings = (headingElements: HTMLElement[]) => {
+  const nestedHeadings: IHeading[] = []
 
   headingElements.forEach(({ innerText, nodeName }) => {
     if (nodeName === 'H2') {
@@ -11,6 +16,7 @@ const getNestedHeadings = (headingElements: any[]) => {
       nestedHeadings[nestedHeadings.length - 1].items.push({
         id: innerText,
         title: innerText,
+        items: [],
       })
     }
   })
@@ -19,9 +25,9 @@ const getNestedHeadings = (headingElements: any[]) => {
 }
 
 const useHeadingsData = () => {
-  const [nestedHeadings, setNestedHeadings] = useState<any[]>([])
+  const [nestedHeadings, setNestedHeadings] = useState<IHeading[]>([])
 
-  useMount(() => {
+  useEffect(() => {
     // TODO: 각 소제목마다 동적으로 id부여, 썩 마음에 드는 방법은 아님, 리팩토링 필요
     ;(document.querySelectorAll('h2, h3') as NodeListOf<HTMLElement>).forEach(
       (heading) => {
@@ -29,9 +35,11 @@ const useHeadingsData = () => {
       }
     )
     const headingElements = Array.from(document.querySelectorAll('h2, h3'))
-    const newNestedHeadings = getNestedHeadings(headingElements)
+    const newNestedHeadings = getNestedHeadings(
+      headingElements as HTMLElement[]
+    )
     setNestedHeadings(newNestedHeadings)
-  })
+  }, [])
 
   return { nestedHeadings }
 }
