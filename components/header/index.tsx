@@ -9,6 +9,14 @@ import { FaceLogo, MenuIcon } from '../../assets/images'
 
 import styles from './header.module.scss'
 
+const menus = [
+  { href: '/', text: 'Home' },
+  { href: '/posts', text: 'Posts' },
+  // { href: '/projects', text: 'Projects' },
+  { href: '/contacts', text: 'Contacts' },
+  { href: '/routines/readings', text: 'Readings' },
+]
+
 const Header = () => {
   const { pathname } = useRouter()
   const [isMenuShow, setIsMenuShow] = useState(false)
@@ -48,32 +56,13 @@ const Header = () => {
         </button>
 
         <ul>
-          <li>
-            <Link href='/'>
-              <a className={cx(pathname === '/' && styles.active)}>Home</a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/posts'>
-              <a className={cx(pathname === '/posts' && styles.active)}>
-                Posts
-              </a>
-            </Link>
-          </li>
-          {/* <li>
-            <Link href='/projects'>
-              <a className={cx(pathname === '/projects' && styles.active)}>
-                Projects
-              </a>
-            </Link>
-          </li> */}
-          <li>
-            <Link href='/contacts'>
-              <a className={cx(pathname === '/contacts' && styles.active)}>
-                Contacts
-              </a>
-            </Link>
-          </li>
+          {menus.map(({ href, text }) => (
+            <li key={text}>
+              <Link href={href}>
+                <a className={cx(pathname === href && styles.active)}>{text}</a>
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>
